@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
+import { TaskService } from '../task.service';
 
 @Component({
   selector: 'app-create-task',
@@ -9,7 +10,7 @@ import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
 export class CreateTaskComponent {
       taskForm: FormGroup;
 
-      constructor( private fb: FormBuilder) {
+      constructor( private fb: FormBuilder,private taskService: TaskService) {
         this.taskForm = this.fb.group({
           taskName: ['',[Validators.required, Validators.minLength(5)]],
           dueDate: ['', Validators.required],
@@ -48,9 +49,13 @@ export class CreateTaskComponent {
       return person.get('skills') as FormArray;
     }
 
-      submitTask(){
-        if(this.taskForm.valid){
-          console.log('Task submitted', this.taskForm.value);
-        }
-      }
+  submitTask() {
+    if (this.taskForm.valid) {
+      const newTask = this.taskForm.value;
+      newTask.completed = false;
+      this.taskService.addTask(newTask);
+      console.log('Task submitted:', this.taskForm.value);
+      this.taskForm.reset();
+    }
+  }
    }

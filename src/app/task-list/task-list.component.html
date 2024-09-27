@@ -1,0 +1,22 @@
+
+<div class="btn-group mb-3">
+  <button class="btn btn-outline-primary" (click)="filterTasks('all')">All</button>
+  <button class="btn btn-outline-primary" (click)="filterTasks('completed')">Completed</button>
+  <button class="btn btn-outline-primary" (click)="filterTasks('pending')">Pending</button>
+</div>
+
+<div class="list-group">
+  <div *ngFor="let task of filteredTasks | async; let i = index" class="list-group-item">
+    <h3>{{ task.taskName }}</h3>
+    <p><strong>Due Date:</strong> {{ task.dueDate }}</p>
+    <ul class="list-group">
+      <li *ngFor="let person of task.people" class="list-group-item d-flex justify-content-between align-items-center">
+        {{ person.fullName }} - {{ person.age }} años
+        <span class="badge bg-primary rounded-pill">{{ person.skills.length }} skills</span>
+      </li>
+    </ul>
+    <button (click)="toggleCompletion(i)" class="btn btn-outline-success mt-2">
+      {{ task.completed ? 'Mark as Pending' : 'Mark as Completed' }}
+    </button>
+  </div>
+</div>

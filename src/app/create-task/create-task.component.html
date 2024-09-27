@@ -33,7 +33,7 @@
         <div *ngFor="let skill of getSkills(person).controls; let j = index" class="mb-2">
           <label for="skill" class="form-label">Skill</label>
           <input id="skill" [formControlName]="j" class="form-control mb-1" />
-          <button type="button" class="btn btn-danger btn-sm" (click)="removeSkill(i, j)">Remove Skill</button>
+          <button type="button" class="btn btn-danger btn-sm mb-3" (click)="removeSkill(i, j)">Remove Skill</button>
         </div>
       </div>
 
@@ -42,5 +42,7 @@
     </div>
   </div>
 
-  <button type="submit" class="btn btn-success">Submit Task</button>
+  <button type="button" class="btn btn-primary btn-sm mb-3" (click)="addPerson()">Add Person</button>
+
+  <button type="submit" class="btn btn-success btn-sm mb-3">Submit Task</button>
 </form>

@@ -1,5 +1,19 @@
 # TaskManagement
 
+This is a test application built for the job offer at VELAIO.
+
+## Features
+
+- Create, list, and manage tasks.
+- Add and remove people assigned to tasks.
+- Manage skills for each person assigned to a task.
+
+## How to run the project
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/tu-usuario/TaskManagement.git
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
 
 ## Development server
