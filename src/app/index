@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>stc - soporte tecnico de computadores</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <link href="css/jquery-ui.css" rel="stylesheet">
+
+    <!-- Scripts para JQuery y Datepicker -->
+    <script src="js/external/jquery/jquery.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script>
+        $(function() {
+            // Inicializa el datepicker en español
+            $.datepicker.regional['es'] = {
+                closeText: 'Cerrar',
+                prevText: '< Ant',
+                nextText: 'Sig >',
+                currentText: 'Hoy',
+                monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+                dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Juv', 'Vie', 'Sáb'],
+                dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
+                weekHeader: 'Sm',
+                dateFormat: 'dd/mm/yy',
+                firstDay: 1,
+                isRTL: false,
+                showMonthAfterYear: false,
+                yearSuffix: ''
+            };
+            $.datepicker.setDefaults($.datepicker.regional['es']);
+            $("#datepicker").datepicker();
+        });
+    </script>
+
+</head>
+<body class="contenedor-general">
+    <!-- Header -->
+    <header>
+        <figure class="logo">
+            <!-- Logo que representa un computador -->
+            <img src="img/computador.png" alt="logo computador" />
+            <figcaption>
+                <h1>Soporte Técnico de Computo</h1>
+            </figcaption>
+        </figure>
+        <div class="redes">
+            <img src="imagenes/red1.png" alt="redes" />
+            <img src="imagenes/red2.png" alt="redes" />
+            <img src="imagenes/red3.png" alt="redes" />
+        </div>
+    </header>
+    <!-- Navegación -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="quienessomos.html">Quiénes Somos</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="galeria.html">Galería</a></li>
+            <li><a href="contactos.html">Contáctenos</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <div id="sombra-contenido">
+        <section class="articulos">
+            <div id="slider">
+                <a href="" target="_blank"> <img src="imagenes/ia.jpg" alt="slider" /> </a>
+            </div>
+            <!-- Primer Artículo -->
+            <article class="post">
+                <h2><a href="#">Programación con Inteligencia Artificial</a></h2>
+                <figure>
+                    <a href="#"><img src="imagenes/inteligencia_artificial.jpg" alt="imagen principal" /></a>
+                </figure>
+                <p>25 herramientas para programar con inteligencia artificial: cómo la IA puede optimizar el desarrollo web.</p>
+            </article>
+        </section>
+
+        <!-- Barra lateral con el calendario -->
+        <aside class="bloques-aside">
+            <h3>Calendario</h3>
+            <div id="datepicker"></div>
+        </aside>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <nav class="footer">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="quienessomos.html">Quiénes Somos</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="galeria.html">Galería</a></li>
+                <li><a href="contactos.html">Contáctenos</a></li>
+            </ul>
+        </nav>
+        <p>© 2024 stc - Soporte Técnico de Computadores</p>
+    </footer>
+</body>
+</html>

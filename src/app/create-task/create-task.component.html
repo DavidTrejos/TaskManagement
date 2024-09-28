@@ -1,4 +1,5 @@
 <form [formGroup]="taskForm" (ngSubmit)="submitTask()" class="p-3">
+  <!-- Campo del nombre de la tarea -->
   <div class="mb-3">
     <label for="taskName" class="form-label">Task Name</label>
     <input id="taskName" formControlName="taskName" class="form-control" />
@@ -7,6 +8,7 @@
     </div>
   </div>
 
+  <!-- Campo de la fecha límite -->
   <div class="mb-3">
     <label for="dueDate" class="form-label">Due Date</label>
     <input type="date" id="dueDate" formControlName="dueDate" class="form-control" />
@@ -15,34 +17,41 @@
     </div>
   </div>
 
+  <!-- FormArray de personas -->
   <div formArrayName="people" class="mb-3">
     <div *ngFor="let person of people.controls; let i = index" [formGroupName]="i" class="mb-2">
+      <!-- Nombre completo de la persona -->
       <label for="fullName" class="form-label">Full Name</label>
       <input id="fullName" formControlName="fullName" class="form-control" />
       <div *ngIf="person.get('fullName')?.invalid && person.get('fullName')?.touched" class="text-danger">
         Full Name is required and must be at least 5 characters.
       </div>
 
+      <!-- Edad de la persona -->
       <label for="age" class="form-label">Age</label>
       <input type="number" id="age" formControlName="age" class="form-control" />
       <div *ngIf="person.get('age')?.invalid && person.get('age')?.touched" class="text-danger">
         Age must be greater than 18.
       </div>
 
+      <!-- FormArray de habilidades de cada persona -->
       <div formArrayName="skills" class="mb-2">
         <div *ngFor="let skill of getSkills(person).controls; let j = index" class="mb-2">
           <label for="skill" class="form-label">Skill</label>
           <input id="skill" [formControlName]="j" class="form-control mb-1" />
-          <button type="button" class="btn btn-danger btn-sm mb-3" (click)="removeSkill(i, j)">Remove Skill</button>
+          <button type="button" class="btn btn-danger btn-sm mb-3 me-2" (click)="removeSkill(i, j)">Remove Skill</button>
         </div>
       </div>
 
-      <button type="button" class="btn btn-primary btn-sm mb-3" (click)="addSkill(i)">Add Skill</button>
-      <button type="button" class="btn btn-warning btn-sm" (click)="removePerson(i)">Remove Person</button>
+      <!-- Botones para añadir habilidades y eliminar persona -->
+      <button type="button" class="btn btn-primary btn-sm mb-3 me-2" (click)="addSkill(i)">Add Skill</button>
+      <button type="button" class="btn btn-warning btn-sm mb-3" (click)="removePerson(i)">Remove Person</button>
     </div>
   </div>
 
-  <button type="button" class="btn btn-primary btn-sm mb-3" (click)="addPerson()">Add Person</button>
+  <!-- Botón para agregar una nueva persona -->
+  <button type="button" class="btn btn-primary btn-sm mb-3 me-2" (click)="addPerson()">Add Person</button>
 
+  <!-- Botón para enviar el formulario -->
   <button type="submit" class="btn btn-success btn-sm mb-3">Submit Task</button>
 </form>
